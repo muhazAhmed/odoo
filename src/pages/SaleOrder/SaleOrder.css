@@ -1,0 +1,36 @@
+.saleOrder {
+  padding-top: 3rem;
+}
+
+.header-saleOrder {
+  padding: 10px;
+  background-color: var(--header);
+  width: 86.8vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-saleOrder h1 {
+  color: var(--blue);
+  font-size: 21px;
+  text-shadow: 2px 4px 5px var(--shadow);
+}
+
+.header-saleOrder .filter {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Responsive CSS for max-width: 576px */
+@media (max-width: 576px) {
+  .header-saleOrder {
+    flex-wrap: wrap;
+    /* padding: 10px 5px; */
+  }
+
+  .header-saleOrder h1 {
+    display: none;
+  }
+}

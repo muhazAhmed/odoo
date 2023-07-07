@@ -1,0 +1,101 @@
+.caseOnHold {
+    padding-top: 3rem;
+}
+
+.header-caseOnHold {
+    padding: 10px;
+    background-color: var(--header);
+    width: 86.8vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-caseOnHold h1 {
+    color: var(--blue);
+    font-size: 21px;
+    text-shadow: 2px 4px 5px var(--shadow);
+}
+
+.header-caseOnHold .filter {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* CaseOnHold.css */
+
+.CaseNo-modal {
+    position: fixed;
+    right: 350px;
+    left: 350px;
+    top: 100px;
+    height: 70vh;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--header);
+    border: 2px solid var(--shadow);
+    border-radius: 8px;
+  }
+  
+  .CaseNo-modal h2 {
+    font-size: 18px;
+  }
+  
+  .CaseNo-modal-body {
+    font-size: 15px;
+    /* overflow: auto; */
+  }
+  
+  .CaseNo-modal p {
+    margin: 10px 0;
+  }
+
+  .CaseNo-modal .CaseNo-modal-close{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .CaseNo-modal .CaseNo-modal-close button{
+    border: none;
+    font-size: larger;
+    position: relative;
+    cursor: pointer;
+  }
+  
+
+/* Responsive CSS for max-width: 576px */
+@media (max-width: 576px) {
+    .header-caseOnHold {
+        flex-wrap: wrap;
+        /* padding: 10px 5px; */
+    }
+
+    .header-caseOnHold h1 {
+        display: none;
+    }
+
+    .CaseNo-modal {
+        right: 1px;
+        left: 1px;
+        top: 40px;
+        padding: 10px;
+        z-index: 1;
+        height: auto;
+        width: 100vw;
+    }
+
+    .CaseNo-modal h2 {
+        font-size: 16px;
+    }
+
+    .CaseNo-modal-body {
+        font-size: 14px;
+    }
+
+    .CaseNo-modal .CaseNo-modal-close button {
+        font-size: 16px;
+    }
+}

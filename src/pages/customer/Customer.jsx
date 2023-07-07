@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import "./customer.css";
-import { DataGrid, GridToolbar } from '@mui/x-data-grid';
-import { Pagination, TextField } from '@mui/material';
-import jsonData from '../../assets/Json/Verify Job Card.json';
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import { Pagination, TextField } from "@mui/material";
+import jsonData from "../../assets/Json/Verify Job Card.json";
 
 const Customer = () => {
   const columns = [
-    { field: "JobEntryID", headerName: "Job Entry ID", with:300 },
+    { field: "JobEntryID", headerName: "Job Entry ID", with: 300 },
     { field: "ImpressionNo", headerName: "Impression Number", width: 200 },
     { field: "Patient", headerName: "Patient", width: 300 },
     { field: "CustomerName", headerName: "Customer Name", width: 300 },
@@ -18,7 +18,7 @@ const Customer = () => {
   const [tableData, setTableData] = useState([]);
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     setTableData(jsonData.map((row, index) => ({ id: index, ...row })));
@@ -35,20 +35,22 @@ const Customer = () => {
   };
 
   const filteredData = tableData.filter((row) =>
-    Object.values(row).some((value) =>
-      value && value.toString().toLowerCase().includes(search.toLowerCase())
+    Object.values(row).some(
+      (value) =>
+        value && value.toString().toLowerCase().includes(search.toLowerCase())
     )
   );
 
   return (
-    <div style={{ height: 600, width: "100%" }}>
+    <div style={{ height: 540, width: "100%" }}>
       <TextField
         label="Search"
         value={search}
         onChange={handleSearchChange}
         variant="outlined"
-        style={{ marginBottom: 10 }}
+        style={{ marginBottom: 10, marginTop : 10, width: "12rem", fontSize: "6px"}}
       />
+
       <DataGrid
         rows={filteredData}
         columns={columns}
