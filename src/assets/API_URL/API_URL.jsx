@@ -1,0 +1,1 @@
+export const API_URL = "http://uat.illusiondentallab.com/API_2020/api/"
