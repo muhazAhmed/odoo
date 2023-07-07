@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import {
-  Drawer,
+  AppBar,
+  Toolbar,
   IconButton,
+  Typography,
+  Drawer,
   List,
   ListItem,
   ListItemIcon,
@@ -11,16 +14,36 @@ import {
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import HomeIcon from '@material-ui/icons/Home';
-import PeopleIcon from '@material-ui/icons/People';
+import FileCopyRoundedIcon from '@mui/icons-material/FileCopyRounded';
 import InfoIcon from '@material-ui/icons/Info';
 import MailIcon from '@material-ui/icons/Mail';
 
 const useStyles = makeStyles((theme) => ({
+  appBar: {
+    backgroundColor: '#29c9ff',
+  },
   menuButton: {
     marginRight: theme.spacing(2),
   },
+  title: {
+    flexGrow: 1,
+    textAlign : "center",
+    fontWeight: 'bold',
+    marginLeft: theme.spacing(2),
+  },
   drawer: {
-    width: 250
+    width: 200,
+    height: "100%",
+    backgroundColor : "#29c9ff",
+    color : "#fff",
+    padding: "10px",
+  },
+  listItemIcon: {
+    minWidth: theme.spacing(5),
+    color : "#fff",
+  },
+  listItemText: {
+    fontSize: '1rem',
   },
 }));
 
@@ -34,34 +57,55 @@ const Navbar = () => {
 
   const menuItems = [
     { text: 'Home', icon: <HomeIcon />, link: '/' },
-    { text: 'Customer', icon: <PeopleIcon />, link: '/customer-data' },
-    { text: 'About', icon: <InfoIcon />},
-    { text: 'Contact Us', icon: <MailIcon />},
+    { text: 'Customer', icon: <FileCopyRoundedIcon />, link: '/customer-data' },
+    { text: 'Case On Hold', icon: <FileCopyRoundedIcon />, link: '/case-on-hold' },
+    { text: 'Sale Order', icon: <FileCopyRoundedIcon />, link: '/sale-order' },
+    { text: 'About', icon: <InfoIcon /> },
+    { text: 'Contact Us', icon: <MailIcon /> },
   ];
 
   return (
     <div>
-      <IconButton
-        edge="start"
-        color="inherit"
-        aria-label="menu"
-        className={classes.menuButton}
-        onClick={toggleDrawer(true)}
-      >
-        <MenuIcon />
-      </IconButton>
+      <AppBar position="static" className={classes.appBar}>
+        <Toolbar>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            className={classes.menuButton}
+            onClick={toggleDrawer(true)}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
+          Hi admin, You have logged into Illusion Dental Laboratory (FY 2023-24)
+          </Typography>
+        </Toolbar>
+      </AppBar>
       <Drawer anchor="left" open={isOpen} onClose={toggleDrawer(false)}>
         <div
           className={classes.drawer}
           role="presentation"
           onClick={toggleDrawer(false)}
           onKeyDown={toggleDrawer(false)}
+           style={{}}
         >
           <List>
             {menuItems.map(({ text, icon, link }, index) => (
-              <ListItem button key={text} component={RouterLink} to={link}>
-                <ListItemIcon>{icon}</ListItemIcon>
-                <ListItemText primary={text} />
+              <ListItem
+                button
+                key={text}
+                component={RouterLink}
+                to={link}
+                disableRipple
+              >
+                <ListItemIcon className={classes.listItemIcon}>
+                  {icon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={text}
+                  classes={{ primary: classes.listItemText }}
+                />
               </ListItem>
             ))}
           </List>
