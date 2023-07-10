@@ -4,10 +4,10 @@ import FilterAltRoundedIcon from "@mui/icons-material/FilterAltRounded";
 import { ServerVariableService } from "../../utils/ServerVariables";
 import { Enum_SSCID } from "../../utils/enums/Enum_Common.enum";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import { Pagination } from "@mui/material";
 import { Loading } from "../../components/Loader/Loader";
 import { usePostAPI } from "../../utils/util.services";
 import { useStyles } from "../../components/useStyles";
+import CloseModel from "../../components/models/CloseModel/CloseModal";
 
 const SaleOrder = () => {
   const classes = useStyles();
@@ -26,7 +26,6 @@ const SaleOrder = () => {
   const { data, error, loading, postData } = usePostAPI(); // custom hook
   const [tableData, setTableData] = useState([]);
   const [page, setPage] = useState(0);
-  const [totalPages, setTotalPages] = useState(0);
   const [search, setSearch] = useState("");
 
   // ========= for fatching grid data (postAPI) ==========
@@ -55,7 +54,6 @@ const SaleOrder = () => {
     if (data && data.SaleOrder && data.SaleOrder.length > 0) {
       const dataArray = data.SaleOrder;
       setTableData(dataArray.map((row, index) => ({ id: index, ...row })));
-      setTotalPages(Math.ceil(dataArray.length / 10));
     }
   }, [data]);
 
@@ -75,6 +73,18 @@ const SaleOrder = () => {
         value && value.toString().toLowerCase().includes(search.toLowerCase())
     )
   );
+
+  // Save and retrieve the applied filter from localStorage
+  useEffect(() => {
+    const savedFilter = localStorage.getItem("saleOrderFilter");
+    if (savedFilter) {
+      setSearch(savedFilter);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("saleOrderFilter", search);
+  }, [search]);
 
   return (
     <>
@@ -110,7 +120,7 @@ const SaleOrder = () => {
               Go
             </Button>
           </div>
-          {/* <CloseModel/> */}
+          <CloseModel/>
         </div>
       </div>
 
@@ -121,7 +131,7 @@ const SaleOrder = () => {
           {error}
         </Typography>
       )}
-      <div style={{ height: 550, width: "100%" }}>
+      <div style={{ height: 585, width: "100%" }}>
         <DataGrid
           rows={filteredData}
           columns={columns}
@@ -132,14 +142,6 @@ const SaleOrder = () => {
           rowCount={filteredData.length}
           pageSizeOptions={[10, 25, 50, 100]}
           slots={{ toolbar: GridToolbar }}
-        />
-        <Pagination
-          count={totalPages}
-          page={page + 1}
-          onChange={handlePageChange}
-          showFirstButton
-          showLastButton
-          siblingCount={5}
         />
       </div>
     </>
