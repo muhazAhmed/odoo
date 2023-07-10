@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link as RouterLink } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -11,39 +11,39 @@ import {
   ListItemIcon,
   ListItemText,
   makeStyles,
-} from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
-import HomeIcon from '@material-ui/icons/Home';
-import FileCopyRoundedIcon from '@mui/icons-material/FileCopyRounded';
-import InfoIcon from '@material-ui/icons/Info';
-import MailIcon from '@material-ui/icons/Mail';
+} from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
+import HomeIcon from "@material-ui/icons/Home";
+import FileCopyRoundedIcon from "@mui/icons-material/FileCopyRounded";
+import InfoIcon from "@material-ui/icons/Info";
+import MailIcon from "@material-ui/icons/Mail";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    backgroundColor: '#29c9ff',
+    backgroundColor: "#29c9ff",
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
-    textAlign : "center",
-    fontWeight: 'bold',
+    textAlign: "center",
+    fontWeight: "bold",
     marginLeft: theme.spacing(2),
   },
   drawer: {
     width: 200,
     height: "100%",
-    backgroundColor : "#29c9ff",
-    color : "#fff",
+    backgroundColor: "#29c9ff",
+    color: "#fff",
     padding: "10px",
   },
   listItemIcon: {
     minWidth: theme.spacing(5),
-    color : "#fff",
+    color: "#fff",
   },
   listItemText: {
-    fontSize: '1rem',
+    fontSize: "1rem",
   },
 }));
 
@@ -56,12 +56,16 @@ const Navbar = () => {
   };
 
   const menuItems = [
-    { text: 'Home', icon: <HomeIcon />, link: '/' },
-    { text: 'Customer', icon: <FileCopyRoundedIcon />, link: '/customer-data' },
-    { text: 'Case On Hold', icon: <FileCopyRoundedIcon />, link: '/case-on-hold' },
-    { text: 'Sale Order', icon: <FileCopyRoundedIcon />, link: '/sale-order' },
-    { text: 'About', icon: <InfoIcon /> },
-    { text: 'Contact Us', icon: <MailIcon /> },
+    { text: "Home", icon: <HomeIcon />, link: "/" },
+    { text: "Customer", icon: <FileCopyRoundedIcon />, link: "/customer-data" },
+    {
+      text: "Case On Hold",
+      icon: <FileCopyRoundedIcon />,
+      link: "/case-on-hold",
+    },
+    { text: "Sale Order", icon: <FileCopyRoundedIcon />, link: "/sale-order" },
+    { text: "About", icon: <InfoIcon /> },
+    { text: "Contact Us", icon: <MailIcon /> },
   ];
 
   return (
@@ -78,7 +82,8 @@ const Navbar = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-          Hi admin, You have logged into Illusion Dental Laboratory (FY 2023-24)
+            Hi admin, You have logged into Illusion Dental Laboratory (FY
+            2023-24)
           </Typography>
         </Toolbar>
       </AppBar>
@@ -88,7 +93,6 @@ const Navbar = () => {
           role="presentation"
           onClick={toggleDrawer(false)}
           onKeyDown={toggleDrawer(false)}
-           style={{}}
         >
           <List>
             {menuItems.map(({ text, icon, link }, index) => (
@@ -98,6 +102,7 @@ const Navbar = () => {
                 component={RouterLink}
                 to={link}
                 disableRipple
+                style={{ borderRadius: "12px" }}
               >
                 <ListItemIcon className={classes.listItemIcon}>
                   {icon}
