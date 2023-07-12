@@ -15,8 +15,8 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import HomeIcon from "@material-ui/icons/Home";
 import FileCopyRoundedIcon from "@mui/icons-material/FileCopyRounded";
-import InfoIcon from "@material-ui/icons/Info";
-import MailIcon from "@material-ui/icons/Mail";
+// import InfoIcon from "@material-ui/icons/Info";
+// import MailIcon from "@material-ui/icons/Mail";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -58,14 +58,13 @@ const Navbar = () => {
   const menuItems = [
     { text: "Home", icon: <HomeIcon />, link: "/" },
     { text: "Job Entry Data", icon: <FileCopyRoundedIcon />, link: "/job-Entry-Data" },
-    {
-      text: "Case On Hold",
-      icon: <FileCopyRoundedIcon />,
-      link: "/case-on-hold",
-    },
-    { text: "Sale Order", icon: <FileCopyRoundedIcon />, link: "/sale-order" },
-    { text: "About", icon: <InfoIcon /> },
-    { text: "Contact Us", icon: <MailIcon /> },
+
+    // ============ Under Development =================
+    
+    // {text: "Case On Hold", icon: <FileCopyRoundedIcon />, link: "/case-on-hold" },
+    // { text: "Sale Order", icon: <FileCopyRoundedIcon />, link: "/sale-order" },
+    // { text: "About", icon: <InfoIcon /> },
+    // { text: "Contact Us", icon: <MailIcon /> },
   ];
 
   return (

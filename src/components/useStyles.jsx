@@ -53,4 +53,10 @@ export const useStyles = makeStyles((theme) => ({
       transition: "0.3s",
     },
   },
+  tableHeader: {
+    fontSize: "16px",
+    fontWeight: "900",
+    color: "#fff",
+    backgroundColor: "#29c9ff",
+  },
 }));

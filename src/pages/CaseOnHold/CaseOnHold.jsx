@@ -184,6 +184,7 @@ const CaseOnHold = () => {
           rowCount={filteredData.length}
           pageSizeOptions={[10, 25, 50, 100]}
           slots={{ toolbar: GridToolbar }}
+          style={{padding : "0px 15px 0px 15px"}}
         />
       </div>
 
