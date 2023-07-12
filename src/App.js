@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Customer from "./pages/customer/Customer";
+import JobEntryData from "./pages/job-Entry-Data/JobEntryData";
 import Home from "./pages/home/Home";
 import Navbar from "./layouts/Navbar/Navbar";
 import CaseOnHold from "./pages/CaseOnHold/CaseOnHold";
@@ -12,7 +12,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/customer-data" element={<Customer />} />
+          <Route path="/job-Entry-Data" element={<JobEntryData />} />
           <Route path="/case-on-hold" element={<CaseOnHold />} />
           <Route path="/sale-order" element={<SaleOrder />} />
         </Routes>
