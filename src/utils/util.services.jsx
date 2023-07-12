@@ -61,7 +61,7 @@ const useFetchAPI = (url) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
 
-  return { data, loading, error };
+  return { data, loading, error, fetchData };
 };
 
 export { usePostAPI, useFetchAPI };

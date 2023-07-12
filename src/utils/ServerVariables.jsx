@@ -1,6 +1,6 @@
 export const ServerVariableService = {
     
-  CustomerData : "ThirdParty/contactlookup",
+  jobEntryData : "Utility/JobEntryReport",
 
   CaseOnHold : "Common/List",
   SaleOrder : "Common/List",
