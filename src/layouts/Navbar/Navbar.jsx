@@ -57,7 +57,7 @@ const Navbar = () => {
 
   const menuItems = [
     { text: "Home", icon: <HomeIcon />, link: "/" },
-    { text: "Customer", icon: <FileCopyRoundedIcon />, link: "/customer-data" },
+    { text: "Job Entry Data", icon: <FileCopyRoundedIcon />, link: "/job-Entry-Data" },
     {
       text: "Case On Hold",
       icon: <FileCopyRoundedIcon />,
