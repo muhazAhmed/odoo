@@ -145,6 +145,7 @@ const JobEntryData = () => {
               showFirstButton
               showLastButton
               siblingCount={5}
+              className={classes.pagination}
             />
           </>
         )}

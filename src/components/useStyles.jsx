@@ -59,4 +59,7 @@ export const useStyles = makeStyles((theme) => ({
     color: "#fff",
     backgroundColor: "#29c9ff",
   },
+  pagination : {
+    backgroundColor: "#ececec",
+  },  
 }));
