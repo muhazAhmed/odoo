@@ -13,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/job-Entry-Data" element={<JobEntryData />} />
+          <Route path="*" element={<Home/>} />
 
           {/* ========== Under Development ================= */}
           
