@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./jobEntryData.css";
-import JsonData from "../../assets/Json/JobEntry_Data.json";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { Pagination, TextField, Typography } from "@mui/material";
-// import axios from "axios";
+import axios from "axios";
 import CloseModel from "../../components/models/CloseModel/CloseModal";
 import { Loading } from "../../components/Loader/Loader";
-// import { API_URL } from "../../assets/API_URL/API_URL";
-// import { ServerVariableService } from "../../utils/ServerVariables";
+import { API_URL } from "../../assets/API_URL/API_URL";
+import { ServerVariableService } from "../../utils/ServerVariables";
 import { useStyles } from "../../components/useStyles";
 
 const JobEntryData = () => {
@@ -28,10 +27,10 @@ const JobEntryData = () => {
   const fetchCustomer = async () => {
     setLoading(true);
     try {
-      // const result = await axios.get(
-      //   API_URL + ServerVariableService.jobEntryData
-      // );
-      const jsonData = JsonData.List;
+      const result = await axios.get(
+        API_URL + ServerVariableService.jobEntryData
+      );
+      const jsonData = result.data.data.List;
 
       // Dynamically generate columns based on the first row of data
       const firstRow = jsonData[0];
